@@ -47,7 +47,7 @@ formCalculator.addEventListener('submit', function (event) {
 });
 
 //reset button
-reset.addEventListener('click', function (event) {
+buttonReset.addEventListener('click', function (event) {
     event.preventDefault();
 
     //default values
