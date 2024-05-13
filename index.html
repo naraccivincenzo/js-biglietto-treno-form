@@ -19,6 +19,7 @@
                 <div class="col-7 mx-auto">
                     <div class="bg-body-tertiary rounded p-5">
                         <form id="calculator-form">
+                            <!-- start form for age and km for the input -->
                             <div class="mb-3">
                                 <label for="age" class="form-label">Età del passeggero</label>
                                 <input type="number" class="form-control" id="age" placeholder="Inserisci l'eta">
@@ -27,13 +28,18 @@
                                 <label for="km" class="form-label">Km da percorrere</label>
                                 <input type="number" class="form-control" id="km" placeholder="Inserisci i km">
                             </div>
+                            <!-- end form for age and km for the input -->
+                            <!-- start output -->
                             <p id="pricexkm"></p>
                             <p id="grossprice"></p>
                             <p id="discount"></p>
                             <p id="price"></p>
                             <p id="message"></p>
+                            <!-- end output -->
+                            <!-- start button -->
                             <button class="btn btn-primary">Calcola il costo</button>
                             <button class="btn btn-danger" id="reset">Reset</button>
+                            <!-- end button -->
                         </form>
                     </div>
                 </div>

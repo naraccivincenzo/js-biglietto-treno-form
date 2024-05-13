@@ -7,6 +7,9 @@ const buttonReset = document.getElementById('reset');
 const age = document.getElementById('age');
 const km = document.getElementById('km');
 
+//constant output
+const discountElement = document.getElementById('discount');
+
 //form submit listener
 formCalculator.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -22,27 +25,29 @@ formCalculator.addEventListener('submit', function (event) {
 
     //calculation
     let grossPrice = km.value * pricexkm;
-    let finalPrice = 0;
+    let finalPrice = grossPrice;
 
     //check if the passenger is young or senior
     if (age.value < 18) {
         finalPrice = grossPrice - (grossPrice * youngDiscount) / 100;
     } else if (age.value > 65) {
         finalPrice = grossPrice - (grossPrice * seniorDiscount) / 100;
-    } else {
-        finalPrice = grossPrice;
     }
 
-    //inject the results into the DOM
+    //inject gross price and pricexkm into the DOM
     document.getElementById("pricexkm").innerHTML = `Il prezzo a chilometro è € ${pricexkm}`;
     document.getElementById("grossprice").innerHTML = `Il prezzo senza sconto è €  ${grossPrice.toFixed(2)}`;
+
+    //inject discount into the DOM
+    let discountText = `Non si ha diritto a nessuno sconto!`;
     if (age.value < 18) {
-        document.getElementById("discount").innerHTML = `Lo sconto applicato è ${youngDiscount} %`;
+        discountText = `Lo sconto applicato è ${youngDiscount} %`;
     } else if (age.value > 65) {
-        document.getElementById("discount").innerHTML = `Lo sconto applicato è ${seniorDiscount} %`;
-    } else {
-        document.getElementById("discount").innerHTML = `Non si ha diritto a nessuno sconto!`;
+        discountText = `Lo sconto applicato è ${seniorDiscount} %`;
     }
+    discountElement.innerHTML = discountText;
+
+    //inject final price into the DOM
     document.getElementById("price").innerHTML = `Il prezzo finale è € ${finalPrice.toFixed(2)}`;
 });
 
